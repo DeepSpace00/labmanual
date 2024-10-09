@@ -31,8 +31,111 @@
 \def\filedate{2024/10/06}
 
 \NeedsTeXFormat{LaTeX2e}
-\providesClass{labmanual}[\filedate\space Version \fileversion\space by Madison Gleydura]
 
-\RequrePackage{ifthen}
-
+\ProvidesClass{labmanual}[\filedate\space Version \fileversion\space by Madison Gleydura]
 \LoadClass[10pt,letterpaper]{article}
+
+% Required Packages
+\RequirePackage{amsmath}
+\usepackage[yyyymmdd]{datetime}
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+
+%-------------------------------------------------------------------------------
+
+%                                **************                                
+%                                ** COMMANDS **
+%                                **************
+
+\newcommand{\@university}{Embry-Riddle Aeronautical University}
+\newcommand{\@department}{Physcial Sciences}
+\newcommand{\@coursetitle}{PS228L - Physics Laboratory III}
+\newcommand{\@experimentname}{DC Circuits}
+\renewcommand{\dateseparator}{--}
+
+\newcommand{\university}[1]{\renewcommand{\@university}{#1}}
+\newcommand{\department}[1]{\renewcommand{\@department}{#1}}
+\newcommand{\coursetitle}[1]{\renewcommand{\@coursetitle}{#1}}
+\newcommand{\experimentname}[1]{\renewcommand{\@experimentname}{#1}}
+
+%-------------------------------------------------------------------------------
+
+%                               *****************
+%                               ** PAGE LAYOUT **
+%                               *****************
+
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-2in}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+
+\setlength{\headheight}{15pt}
+\setlength{\headsep}{15pt}
+\setlength{\topmargin}{0in}
+\addtolength{\topmargin}{-\headheight}
+\addtolength{\topmargin}{-\headsep}
+\setlength{\footskip}{29pt}
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-2.2in}
+
+\setlength{\marginparwidth}{.5in}
+\setlength{\marginparsep}{5pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+
+%-------------------------------------------------------------------------------
+
+%                             *********************
+%                             ** FANCYHDR CONFIG **
+%                             *********************
+
+\pagestyle{fancy}
+\fancyhf{} % Clear all headers and footers
+\fancyhead[C]{\rule{\textwidth}{1.0pt}} % Horizontal line at the top of the page
+\fancyfoot[C]{\rule{\textwidth}{1.5pt}} % Horizontal line in the footer
+\fancyfoot[L]{\\\@university} % Left-aligned text below the line
+\fancyfoot[R]{\\Page \textbf{\thepage} of \textbf{\pageref{LastPage}}} % Right-aligned text below the line
+\renewcommand{\headrulewidth}{0pt} % Remove default fancyhdr line
+\renewcommand{\footrulewidth}{0pt} % Remove default fancyhdr line
+
+% Apply header on the title page
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[C]{\rule{\textwidth}{1.0pt}} % Horizontal line at the top of the page
+  \fancyfoot[C]{\rule{\textwidth}{1.5pt}} % Horizontal line in the footer
+  \fancyfoot[L]{\\\@university} % Left-aligned text below the line
+  \fancyfoot[R]{\\Page \textbf{\thepage} of \textbf{\pageref{LastPage}}} % Right-aligned text below the line
+  \renewcommand{\headrulewidth}{0pt} % Remove default fancyhdr line
+  \renewcommand{\footrulewidth}{0pt} % Remove default fancyhdr line
+}
+
+%-------------------------------------------------------------------------------
+
+%                              *******************                              
+%                              ** TITLE SECTION **
+%                              *******************
+
+\AtBeginDocument{
+    \begin{center}\vspace*{0.125in}
+        \LARGE\textbf{\@experimentname} \\ \vspace*{0.25in}
+        \large\@coursetitle \\
+        \large\textit{\@university} \\
+        \large\text{Department of \@department} \\ \vspace*{0.25in}
+        \large\@date{}
+    \end{center}
+}
+
+%-------------------------------------------------------------------------------
+
+%                              ******************                               
+%                              ** ENVIRONMENTS **
+%                              ******************
+
+\newenvironment{background}
+    {\begin{quote} \setlength{\leftskip}{0.25in} \setlength{\rightskip}{0.25in}}
+    {\end{quote}}
+
+\newenvironment{equipment}
+    {\begin{flushleft} \Large\textbf{Equipment} \begin{itemize}\normalsize}
+    {\end{itemize}\end{flushleft}}
