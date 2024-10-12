@@ -28,12 +28,12 @@
 %%% gleydura@my.erau.edu
 
 \def\fileversion{1.0}
-\def\filedate{2024/10/06}
+\def\filedate{2024/10/12}
 
 \NeedsTeXFormat{LaTeX2e}
 
 \ProvidesClass{labmanual}[\filedate\space Version \fileversion\space by Madison Gleydura]
-\LoadClass[10pt,letterpaper]{article}
+\LoadClass[12pt,letterpaper]{article}
 
 % Required Packages
 \RequirePackage{amsmath}
@@ -95,7 +95,7 @@
 \fancyhead[C]{\rule{\textwidth}{1.0pt}} % Horizontal line at the top of the page
 \fancyfoot[C]{\rule{\textwidth}{1.5pt}} % Horizontal line in the footer
 \fancyfoot[L]{\\\@university} % Left-aligned text below the line
-\fancyfoot[R]{\\Page \textbf{\thepage} of \textbf{\pageref{LastPage}}} % Right-aligned text below the line
+\fancyfoot[R]{\\Page \textbf{\thepage} of \textbf{\pageref*{LastPage}}} % Right-aligned text below the line
 \renewcommand{\headrulewidth}{0pt} % Remove default fancyhdr line
 \renewcommand{\footrulewidth}{0pt} % Remove default fancyhdr line
 
@@ -105,7 +105,7 @@
   \fancyhead[C]{\rule{\textwidth}{1.0pt}} % Horizontal line at the top of the page
   \fancyfoot[C]{\rule{\textwidth}{1.5pt}} % Horizontal line in the footer
   \fancyfoot[L]{\\\@university} % Left-aligned text below the line
-  \fancyfoot[R]{\\Page \textbf{\thepage} of \textbf{\pageref{LastPage}}} % Right-aligned text below the line
+  \fancyfoot[R]{\\Page \textbf{\thepage} of \textbf{\pageref*{LastPage}}} % Right-aligned text below the line
   \renewcommand{\headrulewidth}{0pt} % Remove default fancyhdr line
   \renewcommand{\footrulewidth}{0pt} % Remove default fancyhdr line
 }
@@ -118,11 +118,11 @@
 
 \AtBeginDocument{
     \begin{center}\vspace*{0.125in}
-        \LARGE\textbf{\@experimentname} \\ \vspace*{0.25in}
-        \large\@coursetitle \\
-        \large\textit{\@university} \\
-        \large\text{Department of \@department} \\ \vspace*{0.25in}
-        \large\@date{}
+        \Large\textbf{\@experimentname} \\ \vspace*{0.25in}
+        \normalsize\@coursetitle \\
+        \textit{\@university} \\
+        \text{Department of \@department} \\ \vspace*{0.25in}
+        \@date{}
     \end{center}
 }
 
