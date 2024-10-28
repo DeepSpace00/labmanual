@@ -28,7 +28,7 @@
 %%% gleydura@my.erau.edu
 
 \def\fileversion{1.0}
-\def\filedate{2024/10/12}
+\def\filedate{2024/10/06}
 
 \NeedsTeXFormat{LaTeX2e}
 
@@ -90,24 +90,23 @@
 %                             ** FANCYHDR CONFIG **
 %                             *********************
 
-\pagestyle{fancy}
-\fancyhf{} % Clear all headers and footers
-\fancyhead[C]{\rule{\textwidth}{1.0pt}} % Horizontal line at the top of the page
-\fancyfoot[C]{\rule{\textwidth}{1.5pt}} % Horizontal line in the footer
-\fancyfoot[L]{\\\@university} % Left-aligned text below the line
-\fancyfoot[R]{\\Page \textbf{\thepage} of \textbf{\pageref*{LastPage}}} % Right-aligned text below the line
-\renewcommand{\headrulewidth}{0pt} % Remove default fancyhdr line
-\renewcommand{\footrulewidth}{0pt} % Remove default fancyhdr line
-
 % Apply header on the title page
-\fancypagestyle{plain}{
+\fancypagestyle{firststyle}{
   \fancyhf{}
-  \fancyhead[C]{\rule{\textwidth}{1.0pt}} % Horizontal line at the top of the page
-  \fancyfoot[C]{\rule{\textwidth}{1.5pt}} % Horizontal line in the footer
   \fancyfoot[L]{\\\@university} % Left-aligned text below the line
   \fancyfoot[R]{\\Page \textbf{\thepage} of \textbf{\pageref*{LastPage}}} % Right-aligned text below the line
-  \renewcommand{\headrulewidth}{0pt} % Remove default fancyhdr line
-  \renewcommand{\footrulewidth}{0pt} % Remove default fancyhdr line
+  \renewcommand{\headrulewidth}{1pt} % Set header line width
+  \renewcommand{\footrulewidth}{1.5pt} % Set footer line width
+}
+
+\fancypagestyle{mainstyle}{
+    \fancyhf{} % Clear all headers and footers
+    \fancyhead[L,C]{}
+    \fancyhead[L]{\@experimentname}
+    \fancyfoot[L]{\\\@university} % Left-aligned text below the line
+    \fancyfoot[R]{\\Page \textbf{\thepage} of \textbf{\pageref*{LastPage}}} % Right-aligned text below the line
+    \renewcommand{\headrulewidth}{1pt} % Set header line width
+    \renewcommand{\footrulewidth}{1.5pt} % Set footer line width
 }
 
 %-------------------------------------------------------------------------------
@@ -117,6 +116,8 @@
 %                              *******************
 
 \AtBeginDocument{
+    \pagestyle{mainstyle}
+    \thispagestyle{firststyle}
     \begin{center}\vspace*{0.125in}
         \Large\textbf{\@experimentname} \\ \vspace*{0.25in}
         \normalsize\@coursetitle \\
