@@ -50,13 +50,15 @@
 \newcommand{\@university}{Embry-Riddle Aeronautical University}
 \newcommand{\@department}{Physcial Sciences}
 \newcommand{\@coursetitle}{PS228L - Physics Laboratory III}
-\newcommand{\@experimentname}{DC Circuits}
+\newcommand{\@experimenttitle}{DC Circuits}
+\newcommand{\@experimentsubtitle}{Applications}
 \renewcommand{\dateseparator}{--}
 
 \newcommand{\university}[1]{\renewcommand{\@university}{#1}}
 \newcommand{\department}[1]{\renewcommand{\@department}{#1}}
 \newcommand{\coursetitle}[1]{\renewcommand{\@coursetitle}{#1}}
-\newcommand{\experimentname}[1]{\renewcommand{\@experimentname}{#1}}
+\newcommand{\experimenttitle}[1]{\renewcommand{\@experimenttitle}{#1}}
+\newcommand{\experimentsubtitle}[1]{\renewcommand{\@experimentsubtitle}{#1}}
 
 %-------------------------------------------------------------------------------
 
@@ -102,7 +104,7 @@
 \fancypagestyle{mainstyle}{
     \fancyhf{} % Clear all headers and footers
     \fancyhead[L,C]{}
-    \fancyhead[L]{\@experimentname}
+    \fancyhead[L]{\@experimenttitle}
     \fancyfoot[L]{\\\@university} % Left-aligned text below the line
     \fancyfoot[R]{\\Page \textbf{\thepage} of \textbf{\pageref*{LastPage}}} % Right-aligned text below the line
     \renewcommand{\headrulewidth}{1pt} % Set header line width
@@ -119,7 +121,8 @@
     \pagestyle{mainstyle}
     \thispagestyle{firststyle}
     \begin{center}\vspace*{0.125in}
-        \Large\textbf{\@experimentname} \\ \vspace*{0.25in}
+        \Large\textbf{\@experimenttitle} \\
+        \large\textbf{\@experimentsubtitle} \\ \vspace*{0.25in}
         \normalsize\@coursetitle \\
         \textit{\@university} \\
         \text{Department of \@department} \\ \vspace*{0.25in}
