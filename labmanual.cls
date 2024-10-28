@@ -27,8 +27,8 @@
 %%% Daytona Beach, FL 32114
 %%% gleydura@my.erau.edu
 
-\def\fileversion{1.0}
-\def\filedate{2024/10/06}
+\def\fileversion{1.1}
+\def\filedate{2024/10/28}
 
 \NeedsTeXFormat{LaTeX2e}
 
